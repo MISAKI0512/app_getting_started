@@ -13,11 +13,11 @@ class CreateTodoTable extends Migration
      */
     public function up()
     {
-        Schema::create('todo', function (Blueprint $table) {
+        Schema::create('todos', function (Blueprint $table) {
             $table->id();
-            $table->varchar(20);
-            $table->timestamps('created_at')->useCurrent()->nullable();
-            $table->timestamps('updated_at')->useCurrent()->nullable();
+            $table->string('todo',20);
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->nullable();
         });
     }
 
