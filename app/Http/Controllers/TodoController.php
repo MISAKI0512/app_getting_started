@@ -9,33 +9,21 @@ use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     { 
-        $todo = Todo::all();
-        return view ('index',compact("todo"));
+        return view ('index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     */
     public function create(Request $request)
     {
         //dump($request->all());
         // validate：バリデーション
-
         // insert：登録
-        Todo::create([
-            'todo' => $request -> todo
-        ]);
-
-        // return redirect();
+        $todo = new Todo; //インスタンス化
+        $todo->todo = $request->all();  //モデル->カラム名 = 値 で、データを割り当てる
+        $todo->save(); //データベースに保存
+        return redirect('/'); //リダイレクト
+        
     }
 
     /**

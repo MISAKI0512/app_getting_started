@@ -12,7 +12,8 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Route::resource('/', TodoController::class);
+ 
 Route::group(['prefix' => ''], function() {
     Route::get('/', [TodoController::class, 'index']);
     Route::post('create', [TodoController::class,'create']);
