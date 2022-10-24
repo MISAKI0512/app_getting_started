@@ -27,12 +27,12 @@ class TodoController extends Controller
      */
     public function create(Request $request)
     {
-        // dump($request->all());
+        dump($request->all());
         // validate：バリデーション
 
         // insert：登録
         Todo::create([
-            'todo' => $request -> content
+            'todo' => $request -> todo
         ]);
 
         // return redirect();
