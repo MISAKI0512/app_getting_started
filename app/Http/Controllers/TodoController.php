@@ -16,11 +16,11 @@ class TodoController extends Controller
 
     public function create(Request $request)
     {
-        //dump($request->all());
+        //dd($request->all());
         // validate：バリデーション
         // insert：登録
         $todo = new Todo; //インスタンス化
-        $todo = $request -> {"todo"};  //モデル->カラム名 = 値 で、データを割り当てる
+        $todo->todos = $request -> todos;  //モデル->カラム名 = 値 で、データを割り当てる
         $todo->save(); //データベースに保存
         return redirect('/'); //リダイレクト
         
