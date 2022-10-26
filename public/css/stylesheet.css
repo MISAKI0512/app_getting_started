@@ -137,6 +137,11 @@ margin-bottom: 15px
   outline: none;
 }
 
+.button-add:hover{
+  color: #FFF;
+  background-color: #dc70fa;
+}
+
 th {
   display: table-cell;
   vertical-align: inherit;
@@ -160,12 +165,21 @@ table{
   border: 2px solid #fa9770;
   color: #fa9770;
 }
+.color_orange:hover {
+  color: #FFF;
+  background-color: #fa9770;
+}
 
 .color_green {
   border: 2px solid #71fadc;
   color: #71fadc;
 }
+.color_green:hover {
+  color: #FFF;
+  background-color: #71fadc;
+}
 
 a{
   text-decoration: none;
 }
+
