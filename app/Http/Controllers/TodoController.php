@@ -12,8 +12,8 @@ class TodoController extends Controller
 {
     public function index()
     { 
-    $todo = Todo::all();
-    return view('index', compact('todo'));
+    $todos = Todo::get();
+    return view('index', ["todos" => $todos]);
     }
 
     public function create(Request $request)
@@ -50,8 +50,9 @@ class TodoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function delete(Request $request)
+    public function delete($id)
     {
-        //
+        Todo::find($id)->delete;
+        return view('index');
     }
 }

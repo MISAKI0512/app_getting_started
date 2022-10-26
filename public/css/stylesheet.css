@@ -155,3 +155,17 @@ table{
 --text-opacity: 1;
   color: rgba(245, 101, 101, var(--text-opacity));
 }
+
+.color_orange{
+  border: 2px solid #fa9770;
+  color: #fa9770;
+}
+
+.color_green {
+  border: 2px solid #71fadc;
+  color: #71fadc;
+}
+
+a{
+  text-decoration: none;
+}

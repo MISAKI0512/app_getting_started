@@ -30,14 +30,34 @@
             <th>更新</th>
             <th>削除</th>
           </tr>
+          @foreach($todos as $todo)
+          @csrf
           <tr>
-            <th>[時間]</th>
-            <th>{{ $todo->todo }}</th>
-            <th>[更新]</th>
-            <th>[削除]</th>
+            {{--作成日--}}
+            <td>{{$todo-> created_at}}</td>
+             {{--タスク--}}
+             <td>
+              <form action="/update" method="post" class="flex between mb-30">
+                <input type="text" class="input-add" name="todo" value="{{$todo-> todo }}"></input>
+              </form>
+            </td>
+            {{--更新--}}
+            <td>
+              <input class="button-add color_orange" type="submit" value="更新"></input>
+            </td>
+            {{--削除--}}
+            <td>
+             <form action="/delete/{{ $todo->id }}" method="post" name="todo">
+              @csrf
+             <button class="button-add color_green">削除</button>
+              </form>
+            </td>
+          </tr>
+          @endforeach
           </tbody>
         </table>
-        {{-- todoがある場合 --}}
+
+      
 
     </div>
   </div>
