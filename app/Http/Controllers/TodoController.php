@@ -18,11 +18,10 @@ class TodoController extends Controller
 
     public function create(Request $request)
     {
-        //dd($request->all());
         // validate：バリデーション
         $rules = ['todo' => 'required|max:20'];
-        $messages = ['required' => '必須項目です', 'max' => '20文字以下にしてください。'];
-        Validator::make($request->all(), $rules, $messages)->validate();
+        $message = ['required' => '必須項目です', 'max' => '20文字以下にしてください。'];
+        Validator::make($request->all(), $rules, $message)->validate();
 
         // insert：登録
         $todo = new Todo; //インスタンス化
@@ -39,10 +38,12 @@ class TodoController extends Controller
      */
     public function update(Request $request,$id)
     {
-        //dd($request->todo);
-        //$todo = new Todo;
-        //$todo->todo = $request ->input('todo');
-        //$todo->update($request -> todo);
+        // validate：バリデーション
+        $rules = ['todo' => 'required|max:20'];
+        $message = ['required' => '必須項目です', 'max' => '20文字以下にしてください。'];
+        Validator::make($request->all(), $rules, $message)->validate();
+
+        //更新
         Todo::find($id)->update(['todo' => $request ->todo]);
         return redirect('/');
     }
